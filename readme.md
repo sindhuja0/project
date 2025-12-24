@@ -84,7 +84,7 @@ Processing steps:
 1. Extract mean green-channel intensity from the facial ROI.
 2. Apply detrending and normalization.
 3. Apply a band-pass filter to isolate heart-rate frequencies.
-4. Estimate heart rate using FFT peak detection.
+
 
 **Why this approach:**
 
@@ -105,22 +105,9 @@ Processing steps:
 
 * This introduces intentional latency, but significantly improves accuracy and reduces noise.
 
-**Design decision:**
 
-Signal stability and interpretability were prioritized over instantaneous, frame-level prediction, which is more appropriate for stress monitoring tasks.
 
-###  Smoothing Strategy
 
-* Exponential moving averages are applied to:
-
-    * Heart rate
-    * Stress Index
-
-This results in:
-
-* Reduced false spikes
-* Smoother visualizations
-* More reliable stress trends over time
 
 
 
