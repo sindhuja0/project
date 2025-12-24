@@ -58,13 +58,11 @@ stress_raw =  clamp (0.75 × hr_score + 0.25 × blink_score)
 
 * Interpretable: Each component can be individually inspected and visualized.
 
-* Consistent: Stress scores increase during stress tasks and remain low during relaxed states.
 
-To improve temporal stability, the Stress Index is further smoothed over time, producing a realistic and user-friendly output.
 
 ## Model Choice: Pre-Trained Components Used
 
-This system uses pre-trained models only for low-level perception, not for end-to-end stress prediction.
+This system uses pre-trained models only for low-level perception.
 
 ### 1. MediaPipe Face Mesh (Pre-trained)
 
@@ -104,6 +102,7 @@ Processing steps:
 * Heart rate estimation requires a temporal window (approximately 5–10 seconds).
 
 * This introduces intentional latency, but significantly improves accuracy and reduces noise.
+
 
 
 
