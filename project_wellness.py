@@ -393,10 +393,10 @@ with mp_face_mesh.FaceMesh(
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
 
         if stress_smooth is not None:
-            cv2.putText(frame, f"Stress (fused): {stress_smooth:.1f}/100", (20, 240),
+            cv2.putText(frame, f"Stress : {stress_smooth:.1f}/100", (20, 240),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
         else:
-            cv2.putText(frame, "Stress (fused): --", (20, 240),
+            cv2.putText(frame, "Stress: --", (20, 240),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
 
         out = np.zeros((OUT_H, OUT_W, 3), dtype=np.uint8)
@@ -479,11 +479,12 @@ eda_interp = np.interp(df["t_sec"].to_numpy(),
 eda_norm = (eda_interp - np.nanmean(eda_interp)) / (np.nanstd(eda_interp) + 1e-6)
 
 plt.figure(figsize=(12, 5))
-plt.plot(df["t_sec"], df["stress_index"], linewidth=2, label="Stress_Index (yours)")
-plt.plot(df["t_sec"], eda_norm * 20 + 50, linewidth=2, label="EDA GT (z-scored, scaled)")
+plt.plot(df["t_sec"], df["stress_index"], linewidth=2, label="Stress_Index ")
+plt.plot(df["t_sec"], eda_norm * 20 + 50, linewidth=2, label="EDA GT")
 plt.xlabel("Time (seconds)")
 plt.title("Stress_Index vs Ground Truth EDA (UBFC-Phys)")
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
 plt.show()
+
