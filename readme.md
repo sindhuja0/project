@@ -122,8 +122,5 @@ This results in:
 * Smoother visualizations
 * More reliable stress trends over time
 
-### Threading Consideration
 
-* For simplicity, all processing runs in a single thread.
-* The system architecture is modular, and the rPPG computation can easily be moved to a separate thread if higher frame rates or heavier models are required.
 
